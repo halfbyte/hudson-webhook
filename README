@@ -1,0 +1,25 @@
+This is a first shot at some kind of generic "webhook" Notifier for builds.
+
+Currently I'm not quite sure if this makes any sense or if specialized plugins for every
+webservice are better, e.g. because having it generic will be too much of a hassle to
+configure.
+
+Beware: Currently this is completely non-functional. I am rather happy that I finally got the
+configuration persistence right. Writing Hudson plugins is a PITA if you are usually hacking ruby.
+
+License
+
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+                    Version 2, December 2004
+
+ Copyright (C) 2004 Sam Hocevar
+  14 rue de Plaisance, 75014 Paris, France
+ Everyone is permitted to copy and distribute verbatim or modified
+ copies of this license document, and changing it is allowed as long
+ as the name is changed.
+
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+  0. You just DO WHAT THE FUCK YOU WANT TO.
+ 
