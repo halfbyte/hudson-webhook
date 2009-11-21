@@ -119,9 +119,10 @@ public class WebhookPublisher extends Notifier {
 
         @Override
         public boolean configure(StaplerRequest req, JSONObject formData) throws FormException {
+            LOGGER.log(Level.INFO, "before save");
             // set the booleans to false as defaults
             req.bindParameters(this, "webhook.");
-            LOGGER.log(Level.INFO, "before save:" + this.hookurl);
+
             hudsonUrl = Mailer.descriptor().getUrl();
 
 
@@ -146,17 +147,19 @@ public class WebhookPublisher extends Notifier {
             return data;
         }
         @SuppressWarnings("unchecked")
-        @Override
+            @Override
         public boolean isApplicable(Class<? extends AbstractProject> jobType) {
             return true;
         }
         @Override
         public Publisher newInstance(StaplerRequest req, JSONObject formData) throws FormException {
+            req.bindParameters(this, "webhook.");
+            LOGGER.log(Level.INFO, "newInstance: " + this.hookurl);
             if (hudsonUrl == null) {
                 // if Hudson URL is not configured yet, infer some default
                 hudsonUrl = Functions.inferHudsonURL(req);
-                save();
             }
+            save();
             return super.newInstance(req, formData);
         }
     }

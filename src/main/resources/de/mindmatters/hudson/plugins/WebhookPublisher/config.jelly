@@ -9,18 +9,16 @@
     Creates a text field that shows the value of the "name" property.
     When submitted, it will be passed to the corresponding constructor parameter.
   -->
-  <f:advanced>
   <f:entry title="Url">
-    <input type="text" class="settings-input" name="webhook.hookurl"  value="${instance.hookurl}" />
+    <input type="text" class="settings-input" name="webhook.hookurl"  value="${descriptor.getHookurl()}" />
   </f:entry>
   <f:entry title="Method">
     <select class="settings-input" name="webhook.method">
-        <f:option selected="${instance.method == 'get'}">get</f:option>
-        <f:option selected="${instance.method == 'post'}">post</f:option>
+        <f:option selected="${descriptor.getMethod() == 'get'}">get</f:option>
+        <f:option selected="${descriptor.getMethod() == 'post'}">post</f:option>
     </select>
   </f:entry>
-    <f:entry title="Data">
-      <input type="text" class="settings-input" name="webhook.data"  value="${instance.data}" />
-    </f:entry>
-  </f:advanced>
+  <f:entry title="Data">
+    <input type="text" class="settings-input" name="webhook.data"  value="${descriptor.getData()}" />
+  </f:entry>
 </j:jelly>
